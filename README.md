@@ -2,7 +2,7 @@
 The best syntax highlighter for [Asar](https://github.com/RPGHacker/asar) projects in VS Code.
 
 ## Features
-- Support for every function and directives in Asar 1.91
+- Support for every function and directives in Asar 2.0
 - Support for 65c816, SPC700 and GSU/Super FX mnemonics
 - Custom scopes for literally everything supported
 - (Hopefully) smarter than the current options at the extensions marketplace

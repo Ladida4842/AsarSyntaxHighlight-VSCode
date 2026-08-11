@@ -12,7 +12,16 @@
 	<key>patterns</key>
 	<array>
 
-
+		<dict>
+			<key>comment</key>
+			<string>Block Comment</string>
+			<key>name</key>
+			<string>comment.asar.block</string>
+			<key>begin</key>
+			<string>;\[\[</string>
+			<key>end</key>
+			<string>\]\]</string>
+		</dict>
 		<dict>
 			<key>comment</key>
 			<string>Comment</string>
@@ -520,7 +529,7 @@
 			<key>name</key>
 			<string>keyword.asar.operator.bitwise</string>
 			<key>match</key>
-			<string>(<<|>>|\||&|~|\^)</string>
+			<string>(<<|>>|\||&|~|\^|<:)</string>
 		</dict>
 		<dict>
 			<key>comment</key>
