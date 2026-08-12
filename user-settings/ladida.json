@@ -67,8 +67,9 @@
                         }
                 },
                 {
-                    "name": "65c816 Mnemonics - Breakpoints",
-                    "scope": ["keyword.asar.mnemonics.breakpoint"],
+                    "name": "65c816 Mnemonics - Breakpoints and Wait",
+                    "scope": ["keyword.asar.mnemonics.breakpoint",
+			"keyword.asar.mnemonics.wait"],
                     "settings": {
                         "foreground": "#e76767"
                         }

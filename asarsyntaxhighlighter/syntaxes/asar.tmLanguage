@@ -509,11 +509,19 @@
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>Asar bitwise operators</string>
+			<string>Asar incbin operator</string>
 			<key>name</key>
 			<string>keyword.asar.operator.incbin</string>
 			<key>match</key>
 			<string>\s+(->)\s+</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Asar range operator</string>
+			<key>name</key>
+			<string>keyword.asar.operator.range</string>
+			<key>match</key>
+			<string>\b\.\.</string>
 		</dict>
 		<dict>
 			<key>comment</key>
