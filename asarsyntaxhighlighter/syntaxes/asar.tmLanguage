@@ -52,7 +52,7 @@
 			<key>name</key>
 			<string>constant.asar.numeric.hex.addr</string>
 			<key>match</key>
-			<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l.|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l.|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s))\s*\$[0-9a-fA-F]+\b</string>
+			<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s))\s*\$[0-9a-fA-F]+\b</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -68,7 +68,7 @@
 			<key>name</key>
 			<string>constant.asar.numeric.dec.addr</string>
 			<key>match</key>
-			<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l.|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l.|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s))\s*\b[0-9]+\b</string>
+			<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s))\s*\b[0-9]+\b</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -84,7 +84,7 @@
 			<key>name</key>
 			<string>constant.asar.numeric.bin.addr</string>
 			<key>match</key>
-			<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l.|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l.|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s))\s*%[01]+\b</string>
+			<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s))\s*%[01]+\b</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -164,7 +164,7 @@
 					<key>name</key>
 					<string>keyword.asar.macro.args.usage.variadic</string>
 					<key>match</key>
-					<string><\.{3}(\[\S+\])?></string>
+					<string><\.{3}(\[\S+\])?>|(?<=\()(\.{3})(?=\))</string>
 				</dict>
 			</array>
 		</dict>
@@ -360,15 +360,15 @@
             <key>name</key>
             <string>meta.label.asar</string>
             <key>begin</key>
-            <string>(?i)^\s*(global\s+)?(#)?(?=\??\w+(?:<[^>]+>)?\w*:)</string>
+            <string>(?i)(?<=^\s*|\s+:\s+)(global\s+)?(#)?(?=\??\w+(?:<[^>]+>)?\w*:)</string>
             <key>beginCaptures</key>
             <dict>
-                <key>1</key>
+                <key>2</key>
                 <dict>
                     <key>name</key>
                     <string>keyword.asar.namespace.global</string>
                 </dict>
-                <key>2</key>
+                <key>3</key>
                 <dict>
                     <key>name</key>
                     <string>label.asar.label.hierarchy</string>
@@ -465,7 +465,7 @@
 			<key>comment</key>
 			<string>Asar sublabel</string>
 			<key>match</key>
-			<string>^[\s]*(\#)?\??[\.]+([a-zA-Z0-9_]*)(:)?</string>
+			<string>^[\s]*(\#)?\??[\.]+([a-zA-Z0-9_]+)(:)?</string>
 			<key>name</key>
 			<string>label.asar.sublabel</string>
 			<key>captures</key>
@@ -484,7 +484,7 @@
 			<key>name</key>
 			<string>label.asar.anonymous.forward</string>
 			<key>match</key>
-			<string>^\s*\??\++(:)?</string>
+			<string>(?<=^\s*|\s+:\s+)\??\++(:)?</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -492,7 +492,7 @@
 			<key>name</key>
 			<string>label.asar.anonymous.backward</string>
 			<key>match</key>
-			<string>^\s*\??\-+(:)?</string>
+			<string>(?<=^\s*|\s+:\s+)\??\-+(:)?</string>
 		</dict>
 
 
@@ -521,7 +521,7 @@
 			<key>name</key>
 			<string>keyword.asar.operator.range</string>
 			<key>match</key>
-			<string>\b\.\.</string>
+			<string>(\b\.\.|:)</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -573,7 +573,7 @@
 			<key>comment</key>
 			<string>Asar user defined functions</string>
 			<key>match</key>
-			<string>(?i)(\s*(function)\s*)((?![0-9])[a-zA-Z_0-9]+(?=(\(|\s)))</string>
+			<string>(?i)(\s*(function)\s*)?((?![0-9])[a-zA-Z_0-9]+(?=\())</string>
 			<key>captures</key>
 			<dict>
 				<key>2</key>
@@ -908,7 +908,7 @@
 
 		<dict>
 			<key>comment</key>
-			<string>Asar include source</string>
+			<string>Asar repeat command</string>
 			<key>name</key>
 			<string>keyword.asar.repeat</string>
 			<key>match</key>
@@ -950,7 +950,7 @@
 			<key>name</key>
 			<string>label.asar.label.reference</string>
 			<key>match</key>
-			<string>(?i)(?<=\s*(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|BRA|BRL|BEQ|BNE|BCS|BCC|BMI|BPL|BVC|BVS|AND|ORA|EOR|ROL|ROR|TSB|TRB|MVN|MVP|JSR|JMP|JSL|JML|PEA|PEI|PER|BLT|BGE|PCALL|CALL|MOV[0-7]|MOV|INCW|DECW|TSET|TCLR|NOT[0-7]|SET[0-7]|CLR[0-7]|OR|BBC[0-7]|BBS[0-7]|CBNE|DBNZ)(\.b|\.l.|\.w)?)|(INC|DEC|ASL|LSR)((\.b|\.l.|\.w)|(\s+(A|X|Y)\b))?|db|dw|dl|dd|if|elseif|while|autoclean|prot|org|base|skip|warnpc|bank|dpbase|struct|extends|execute|[,#=!<>&|\\/+\-*/()\[\]])\s*)(\?*?(?!\s*[0-9!%.$<>])[a-zA-Z_0-9][a-zA-Z_0-9]*\s*)(?!(\n|;))</string>
+			<string>(?i)(?<=\s*(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|BRA|BRL|BEQ|BNE|BCS|BCC|BMI|BPL|BVC|BVS|AND|ORA|EOR|ROL|ROR|TSB|TRB|MVN|MVP|JSR|JMP|JSL|JML|PEA|PEI|PER|BLT|BGE|PCALL|CALL|MOV[0-7]|MOV|INCW|DECW|TSET|TCLR|NOT[0-7]|SET[0-7]|CLR[0-7]|OR|BBC[0-7]|BBS[0-7]|CBNE|DBNZ)(\.b|\.l|\.w)?)|(INC|DEC|ASL|LSR)((\.b|\.l|\.w)|(\s+(A|X|Y)\b))?|db|dw|dl|dd|if|elseif|while|autoclean|prot|org|base|skip|warnpc|bank|dpbase|struct|extends|execute|[,#=!<>&|\\/+\-*/()\[\]])\s*)(\?*?(?!\s*[0-9!%.$<>])[a-zA-Z_0-9]+\s*)(?!(\n|;|:[\s]|=[\s]))</string>
 		</dict>
 
 
@@ -960,7 +960,7 @@
 			<key>name</key>
 			<string>label.asar.sublabel.reference</string>
 			<key>match</key>
-			<string>(?i)(\s*\?*?[\.]+(?!\s*[!%.$<>])[a-zA-Z_0-9][a-zA-Z_0-9]*\s*)(?!(\n|;))</string>
+			<string>(?i)(\s*\?*?[\.]+(?!\s*[!%.$<>])[a-zA-Z_0-9]+\s*)(?!(\n|;))</string>
 		</dict>
 
 
@@ -970,7 +970,7 @@
 			<key>name</key>
 			<string>label.asar.anonymous.forward.reference</string>
 			<key>match</key>
-			<string>(?i)\s+\??\++\s*?(?!(\n|;))</string>
+			<string>(?i)\s*\??\++\s*?(?!(\n|;))</string>
 		</dict>
 
 		<dict>
@@ -979,7 +979,7 @@
 			<key>name</key>
 			<string>label.asar.anonymous.backward.reference</string>
 			<key>match</key>
-			<string>(?i)\s+\??\-+\s*?(?!(\n|;))</string>
+			<string>(?i)\s*\??\-+\s*?(?!(\n|;))</string>
 		</dict>
 
 	</array>
