@@ -363,12 +363,12 @@
             <string>(?i)(?<=^\s*|\s+:\s+)(global\s+)?(#)?(?=\??\w+(?:<[^>]+>)?\w*:)</string>
             <key>beginCaptures</key>
             <dict>
-                <key>2</key>
+                <key>1</key>
                 <dict>
                     <key>name</key>
                     <string>keyword.asar.namespace.global</string>
                 </dict>
-                <key>3</key>
+                <key>2</key>
                 <dict>
                     <key>name</key>
                     <string>label.asar.label.hierarchy</string>
@@ -412,7 +412,7 @@
             <key>name</key>
             <string>meta.label.assignment.asar</string>
             <key>begin</key>
-            <string>(?i)^\s*(global\s+)?(#)?(?=\??\w+(?:<[^>]+>)?\w*\s*[?+:#]?=)</string>
+            <string>(?i)(?<=^\s*|\s+:\s+)(global\s+)?(#)?(?=\??\w+(?:<[^>]+>)?\w*\s*[?+:#]?=)</string>
             <key>beginCaptures</key>
             <dict>
                 <key>1</key>
