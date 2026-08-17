@@ -465,7 +465,7 @@
 			<key>comment</key>
 			<string>Asar sublabel</string>
 			<key>match</key>
-			<string>^[\s]*(\#)?\??[\.]+([a-zA-Z0-9_]+)(:)?</string>
+			<string>(?<=^\s*|\s+:\s+)(\#)?\??[\.]+([a-zA-Z0-9_]+)(:)?</string>
 			<key>name</key>
 			<string>label.asar.sublabel</string>
 			<key>captures</key>
@@ -567,7 +567,14 @@
 		
 
 
-
+		<dict>
+			<key>comment</key>
+			<string>Asar text output functions</string>
+			<key>match</key>
+			<string>(?i)\s*\b(bin|hex|dec|double)(?=\(+)</string>
+			<key>name</key>
+			<string>keyword.asar.text.functions</string>
+		</dict>
 
 		<dict>
 			<key>comment</key>
@@ -779,14 +786,6 @@
 			<string>(?i)\s*\b(print)\b\s*</string>
 			<key>name</key>
 			<string>keyword.asar.text</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>Asar text output functions</string>
-			<key>match</key>
-			<string>(?i)\s*\b(bin|hex|dec|double)(?=\(+)</string>
-			<key>name</key>
-			<string>keyword.asar.text.functions</string>
 		</dict>
 		<dict>
 			<key>comment</key>
