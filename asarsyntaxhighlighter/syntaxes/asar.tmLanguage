@@ -49,19 +49,19 @@
 		<array>
 			<dict>
 				<key>name</key>
-				<string>constant.asar.numeric.hex.addr</string>
+				<string>constant.asar.numeric.hex.addr.instruction</string>
 				<key>match</key>
 				<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s))\s*\$[0-9a-fA-F]+\b</string>
 			</dict>
 			<dict>
 				<key>name</key>
-				<string>constant.asar.numeric.hex.addr</string>
+				<string>constant.asar.numeric.hex.addr.struct</string>
 				<key>match</key>
 				<string>(?i)(?<=^\s*struct\s+\w+\s+)\$[0-9a-fA-F]+\b</string>
 			</dict>
 			<dict>
 				<key>name</key>
-				<string>constant.asar.numeric.hex.addr</string>
+				<string>constant.asar.numeric.hex.addr.label</string>
 				<key>match</key>
 				<string>(?i)(?<=^\s*\w+\s+=\s+)\$[0-9a-fA-F]+\b</string>
 			</dict>
@@ -336,7 +336,7 @@
 		<key>name</key>
 		<string>keyword.asar.binary.table</string>
 		<key>match</key>
-		<string>(?i)(\s*(pulltable|cleartable|table|\,\s*(ltr|rtl))\s+)</string>
+		<string>(?i)(\s*(pushtable|pulltable|cleartable|table|\,\s*(ltr|rtl))\s+)</string>
 	</dict>
 
 
@@ -529,10 +529,21 @@
 	<dict>
 		<key>comment</key>
 		<string>Asar incbin operator</string>
-		<key>name</key>
-		<string>keyword.asar.operator.incbin</string>
 		<key>match</key>
-		<string>\s+(->)\s+</string>
+		<string>\s+(->)\s+(\w+\b)?</string>
+		<key>captures</key>
+		<dict>
+			<key>1</key>
+			<dict>
+				<key>name</key>
+				<string>keyword.asar.operator.incbin</string>
+			</dict>
+			<key>2</key>
+			<dict>
+				<key>name</key>
+				<string>label.asar.label</string>
+			</dict>
+		</dict>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -820,9 +831,17 @@
 		<key>comment</key>
 		<string>Asar freespace directives</string>
 		<key>match</key>
-		<string>(?i)\s*\b(freespacebyte|freecode|freedata|freespace\b\s+(ram|noram)?)\b\s*((\,*\s*(align|cleaned|static)\s*)+)?</string>
+		<string>(?i)\s*\b(freespacebyte|freecode|freedata|(freespace|freespace_settings)\b\s+(ram|noram)?)\b\s*((\,*\s*(norats|align|cleaned|static|bankcross)\s*)+)?</string>
 		<key>name</key>
 		<string>keyword.asar.freespace</string>
+	</dict>
+	<dict>
+		<key>comment</key>
+		<string>Asar segment directives</string>
+		<key>match</key>
+		<string>(?i)\s*\b(segment\b\s+(ram\b\s*|noram\b\s*)?)(((\,*\s*(align|bankcross)\s*)|(\,*\s*(bank|start|pin)(?:\s*=\s*[^\,\n]+)))+)?</string>
+		<key>name</key>
+		<string>keyword.asar.freespace.segment</string>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -891,9 +910,28 @@
 		<key>comment</key>
 		<string>Asar conditional function</string>
 		<key>match</key>
-		<string>(?i)\s*\b(if|while|for|else|elseif)\b\s*</string>
+		<string>(?i)\s*\b(if|while|else|elseif)\b\s*</string>
 		<key>name</key>
 		<string>keyword.asar.conditionals</string>
+	</dict>
+	<dict>
+		<key>comment</key>
+		<string>Asar for function</string>
+		<key>match</key>
+		<string>(?i)\s*\b(for)\s+(\w+)</string>
+		<key>captures</key>
+		<dict>
+			<key>1</key>
+			<dict>
+				<key>name</key>
+				<string>keyword.asar.conditionals</string>
+			</dict>
+			<key>2</key>
+			<dict>
+				<key>name</key>
+				<string>keyword.asar.define</string>
+			</dict>
+		</dict>
 	</dict>
 	<dict>
 		<key>comment</key>
