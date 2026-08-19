@@ -144,13 +144,13 @@
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage</string>
 				<key>match</key>
-				<string><[a-zA-Z_0-9]+></string>
+				<string><[a-zA-Z_0-9]+>(?!.*:\s*)</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage.variadic</string>
 				<key>match</key>
-				<string><\.{3}(\[\S+\])?></string>
+				<string><\.{3}(\[\S+\])?>(?!.*:\s*)</string>
 			</dict>
 		</array>
 	</dict>
@@ -168,13 +168,13 @@
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage</string>
 				<key>match</key>
-				<string><[a-zA-Z_0-9]+></string>
+				<string><[a-zA-Z_0-9]+>(?!.*:\s*)</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage.variadic</string>
 				<key>match</key>
-				<string><\.{3}(\[\S+\])?>|(?<=\()(\.{3})(?=\))</string>
+				<string><\.{3}(\[\S+\])?>(?!.*:\s*)|(?<=\()(\.{3})(?=\))(?!.*:\s*)</string>
 			</dict>
 		</array>
 	</dict>
@@ -204,6 +204,12 @@
 				<key>match</key>
 				<string><[a-zA-Z_0-9]+></string>
 			</dict>
+			<dict>
+				<key>name</key>
+				<string>keyword.asar.macro.args.usage.variadic</string>
+				<key>match</key>
+				<string><\.{3}(\[\S+\])?></string>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -228,6 +234,12 @@
 				<string>keyword.asar.macro.args.usage</string>
 				<key>match</key>
 				<string><[a-zA-Z_0-9]+></string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>keyword.asar.macro.args.usage.variadic</string>
+				<key>match</key>
+				<string><\.{3}(\[\S+\])?></string>
 			</dict>
 		</array>
 	</dict>
@@ -366,7 +378,7 @@
 		<key>name</key>
 		<string>meta.label.asar</string>
 		<key>begin</key>
-		<string>(?i)(?<=^\s*|\s+:\s+)(global\s+)?(#)?(?=\??\w+(?:<[^>]+>)?\w*:)</string>
+		<string>(?i)(?<=^\s*|\s+:\s+)(global\s+)?(#)?(?=\??\w*(?:<[^>]+>)?\w*:)</string>
 		<key>beginCaptures</key>
 		<dict>
 			<key>1</key>
@@ -551,7 +563,7 @@
 		<key>name</key>
 		<string>keyword.asar.operator.range</string>
 		<key>match</key>
-		<string>(\b\.\.|:)</string>
+		<string>(\b\.\.|:)(?!\s+)</string>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -880,7 +892,7 @@
 		<key>comment</key>
 		<string>Asar namespace directives</string>
 		<key>match</key>
-		<string>(?i)\s*\b(namespace(\s+off|\s+([a-zA-Z_0-9]+)))\b\s*</string>
+		<string>(?i)\s*\b(namespace(\s+off|\s+([a-zA-Z_0-9]+)|\s+(\w*(<[^>]+>|\!\w+)?\w*)))\s*</string>
 		<key>captures</key>
 		<dict>
 			<key>1</key>
@@ -892,6 +904,30 @@
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.namespace.name</string>
+			</dict>
+			<key>4</key>
+			<dict>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>keyword.asar.define</string>
+						<key>match</key>
+						<string>![a-zA-Z0-9_{}]+</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>keyword.asar.macro.args.usage</string>
+						<key>match</key>
+						<string><[a-zA-Z_0-9]+></string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>keyword.asar.macro.args.usage.variadic</string>
+						<key>match</key>
+						<string><\.{3}(\[\S+\])?></string>
+					</dict>
+				</array>
 			</dict>
 		</dict>
 	</dict>
