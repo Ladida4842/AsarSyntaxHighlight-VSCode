@@ -144,13 +144,13 @@
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage</string>
 				<key>match</key>
-				<string><[a-zA-Z_0-9]+>(?!.*[^<]:\s*)</string>
+				<string><[a-zA-Z_0-9]+>(?!\w*:\s*)</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage.variadic</string>
 				<key>match</key>
-				<string><\.{3}(\[\S+\])?>(?!.*[^<]:\s*)</string>
+				<string><\.{3}(\[\S+\])?>(?!\w*:\s*)</string>
 			</dict>
 		</array>
 	</dict>
@@ -168,13 +168,13 @@
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage</string>
 				<key>match</key>
-				<string><[a-zA-Z_0-9]+>(?!.*[^<]:\s*)</string>
+				<string><[a-zA-Z_0-9]+>(?!\w*:\s*)</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage.variadic</string>
 				<key>match</key>
-				<string><\.{3}(\[\S+\])?>(?!.*[^<]:\s*)|(?<=\()(\.{3})(?=\))(?!.*[^<]:\s*)</string>
+				<string><\.{3}(\[\S+\])?>(?!\w*:\s*)|(?<=\()(\.{3})(?=\))(?!\w*:\s*)</string>
 			</dict>
 		</array>
 	</dict>
