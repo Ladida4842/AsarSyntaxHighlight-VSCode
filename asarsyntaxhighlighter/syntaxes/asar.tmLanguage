@@ -946,7 +946,7 @@
 		<key>comment</key>
 		<string>Asar conditional function</string>
 		<key>match</key>
-		<string>(?i)\s*\b(if|while|else|elseif)\b\s*</string>
+		<string>(?i)\s*\b(if|while|else|elseif)\b</string>
 		<key>name</key>
 		<string>keyword.asar.conditionals</string>
 	</dict>
@@ -973,7 +973,7 @@
 		<key>comment</key>
 		<string>Asar end conditional function</string>
 		<key>match</key>
-		<string>(?i)\s*\b(endif|endwhile|endfor)\b\s*</string>
+		<string>(?i)\s*\b(endif|endwhile|endfor)\b</string>
 		<key>name</key>
 		<string>keyword.asar.conditionals.end</string>
 	</dict>
