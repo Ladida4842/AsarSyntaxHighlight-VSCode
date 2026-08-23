@@ -51,7 +51,7 @@
 				<key>name</key>
 				<string>constant.asar.numeric.hex.addr.instruction</string>
 				<key>match</key>
-				<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s))\s*\$[0-9a-fA-F]+\b</string>
+				<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s|(bank=|start=)))\s*\$[0-9a-fA-F]+\b</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -81,7 +81,7 @@
 		<key>name</key>
 		<string>constant.asar.numeric.dec.addr</string>
 		<key>match</key>
-		<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s))\s*\b[0-9]+\b</string>
+		<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s|(bank=|start=)))\s*\b[0-9]+\b</string>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -97,7 +97,7 @@
 		<key>name</key>
 		<string>constant.asar.numeric.bin.addr</string>
 		<key>match</key>
-		<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s))\s*%[01]+\b</string>
+		<string>(?i)(?<=\s*\b(((LDA|LDX|LDY|STA|STX|STY|STZ|ADC|SBC|CMP|CPX|CPY|BIT|AND|ORA|EOR|ROL|ROR|TSB|TRB|JSR|JMP|JSL|JML|PEI)(\.b|\.l|\.w)?)\s*\[?\(?|(INC|DEC|ASL|LSR)(\.b|\.l|\.w)?|\->\s*|(snestopc\(|pctosnes\(|read[1-4]\(|canread[1-4]?\()|(autoclean|org|base|warnpc|dpbase|bank)\s|(bank=|start=)))\s*%[01]+\b</string>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -595,7 +595,7 @@
 		<key>name</key>
 		<string>keyword.asar.operator.assignment</string>
 		<key>match</key>
-		<string>\s+(=|\?=|\+=|:=|#=)\s+</string>
+		<string>\s*(=|\?=|\+=|:=|#=)\s*</string>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -783,7 +783,7 @@
 		<key>comment</key>
 		<string>Asar program counter directives</string>
 		<key>match</key>
-		<string>(?i)\s*\b(org|(base)\b\s*((?=(off))\b(off)\b)?|skip|warnpc|(bank)\b\s*(\b(noassume|auto))?|dpbase|(optimize\sdp)\b([\s]+\b(none|ram|always)\b)?|(optimize\saddress)\b([\s]+\b(default|ram|mirrors)\b)?|pushpc|pullpc|pushbase|pullbase)\b</string>
+		<string>(?i)\s*\b(org|(base)\b\s*((?=(off))\b(off)\b)?|skip|warnpc|(bank(?!\=))\b\s*(\b(noassume|auto))?|dpbase|(optimize\sdp)\b([\s]+\b(none|ram|always)\b)?|(optimize\saddress)\b([\s]+\b(default|ram|mirrors)\b)?|pushpc|pullpc|pushbase|pullbase)\b</string>
 		<key>name</key>
 		<string>keyword.asar.programcounter</string>
 	</dict>
@@ -843,17 +843,17 @@
 		<key>comment</key>
 		<string>Asar freespace directives</string>
 		<key>match</key>
-		<string>(?i)\s*\b(freespacebyte|freecode|freedata|(freespace|freespace_settings)\b\s+(ram|noram)?)\b\s*((\,*\s*(norats|align|cleaned|static|bankcross)\s*)+)?</string>
+		<string>(?i)^\s*(freespacebyte|freecode|freedata|freespace|freespace_settings|segment)\s+</string>
 		<key>name</key>
 		<string>keyword.asar.freespace</string>
 	</dict>
 	<dict>
 		<key>comment</key>
-		<string>Asar segment directives</string>
+		<string>Asar freespace options</string>
 		<key>match</key>
-		<string>(?i)\s*\b(segment\b\s+(ram\b\s*|noram\b\s*)?)(((\,*\s*(align|bankcross)\s*)|(\,*\s*(bank|start|pin)(?:\s*=\s*[^\,\n]+)))+)?</string>
+		<string>(?i)(?<=^\s*(freespacebyte|freecode|freedata|freespace|freespace_settings|segment)\s+.*)(ram|noram|norats|align|cleaned|static|bankcross|bank(?=\=)|start(?=\=)|pin(?=\=))</string>
 		<key>name</key>
-		<string>keyword.asar.freespace.segment</string>
+		<string>keyword.asar.freespace.options</string>
 	</dict>
 	<dict>
 		<key>comment</key>
