@@ -105,7 +105,7 @@
 		<key>name</key>
 		<string>constant.asar.numeric.bin.value</string>
 		<key>match</key>
-		<string>%[01]+\b</string>
+		<string>(?<!\)\s*)%[01]+\b</string>
 	</dict>
 
 
@@ -284,7 +284,7 @@
 		<key>comment</key>
 		<string>Asar macro function</string>
 		<key>match</key>
-		<string>(?i)(\s*(%)\s*)((?![0-9])[a-zA-Z_0-9]*(?=(\(|\s|!)))</string>
+		<string>(?i)(\s*(%)\s*)((?![0-9])[a-zA-Z_0-9]*(?=(\(|\s|!|<)))</string>
 		<key>captures</key>
 		<dict>
 			<key>2</key>
@@ -316,7 +316,7 @@
 		<key>name</key>
 		<string>keyword.asar.binary.raw</string>
 		<key>match</key>
-		<string>(?i)(\s*(db|dw|dl|dd)\b)</string>
+		<string>(?i)(\s*(db|dw|dl|dd)\s+)</string>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -517,7 +517,7 @@
 		<key>name</key>
 		<string>label.asar.anonymous.forward</string>
 		<key>match</key>
-		<string>(?<=^\s*|\s+:\s+)\??\++(:)?</string>
+		<string>(?:(?:^\s*)|(?<=\s+:\s+))\??\++(:)?</string>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -525,7 +525,7 @@
 		<key>name</key>
 		<string>label.asar.anonymous.backward</string>
 		<key>match</key>
-		<string>(?<=^\s*|\s+:\s+)\??\-+(:)?</string>
+		<string>(?:(?:^\s*)|(?<=\s+:\s+))\??\-+(:)?</string>
 	</dict>
 
 
@@ -603,7 +603,7 @@
 		<key>name</key>
 		<string>keyword.asar.operator.arithmetic</string>
 		<key>match</key>
-		<string>(?<!\s|\?)(\+|\-|\*|/|%)</string>
+		<string>(?<!\?)(\+|\-|\*|/|%)(?!\1*,)</string>
 	</dict>
 
 
@@ -615,25 +615,6 @@
 		<string>(?i)\s*\b(bin|hex|dec|double)(?=\(+)</string>
 		<key>name</key>
 		<string>keyword.asar.text.functions</string>
-	</dict>
-	<dict>
-		<key>comment</key>
-		<string>Asar user defined functions</string>
-		<key>match</key>
-		<string>(?i)(\s*(function)\s*)?((?![0-9])[a-zA-Z_0-9]+(?=\())</string>
-		<key>captures</key>
-		<dict>
-			<key>2</key>
-			<dict>
-				<key>name</key>
-				<string>keyword.asar.functions.user</string>
-			</dict>
-			<key>3</key>
-			<dict>
-				<key>name</key>
-				<string>keyword.asar.functions.user.name</string>
-			</dict>
-		</dict>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -719,7 +700,7 @@
 		<key>comment</key>
 		<string>Asar string functions</string>
 		<key>match</key>
-		<string>(?i)\s*_?(stringsequal|stringsequalnocase)(?=\()</string>
+		<string>(?i)\s*_?(stringsequal|stringsequalnocase|char|stringlength)(?=\()</string>
 		<key>name</key>
 		<string>keyword.asar.functions.string</string>
 	</dict>
@@ -746,6 +727,25 @@
 		<string>(?i)\s*_?(bank|datasize)(?=\()</string>
 		<key>name</key>
 		<string>keyword.asar.functions.data</string>
+	</dict>
+	<dict>
+		<key>comment</key>
+		<string>Asar user defined functions</string>
+		<key>match</key>
+		<string>(?i)(\s*(function)\s*)?((?![0-9])[a-zA-Z_0-9]+(?=\())</string>
+		<key>captures</key>
+		<dict>
+			<key>2</key>
+			<dict>
+				<key>name</key>
+				<string>keyword.asar.functions.user</string>
+			</dict>
+			<key>3</key>
+			<dict>
+				<key>name</key>
+				<string>keyword.asar.functions.user.name</string>
+			</dict>
+		</dict>
 	</dict>
 
 
@@ -824,7 +824,7 @@
 		<key>comment</key>
 		<string>Asar text output options</string>
 		<key>match</key>
-		<string>(?i)\s*(pc|(reset\s+)?freespaceuse|(reset\s+)?bytes)\s*</string>
+		<string>(?i)\s*(pc|(reset\s+)?freespaceuse|(reset\s+)?bytes)\b</string>
 		<key>name</key>
 		<string>keyword.asar.text.options</string>
 	</dict>
