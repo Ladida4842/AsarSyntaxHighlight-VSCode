@@ -324,7 +324,7 @@
 		<key>name</key>
 		<string>keyword.asar.binary.fill</string>
 		<key>match</key>
-		<string>(?i)(\s*(fillbyte|fillword|filllong|filldword|fill|align|offset)\s+)</string>
+		<string>(?i)(?<!^\s*(?:freespacebyte|freecode|freedata|freespace|freespace_settings|segment).*)(\s*(fillbyte|fillword|filllong|filldword|fill|align|offset)\s+)</string>
 	</dict>
 	<dict>
 		<key>comment</key>
