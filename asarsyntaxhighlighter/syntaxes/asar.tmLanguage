@@ -37,7 +37,7 @@
 		<key>name</key>
 		<string>keyword.asar.command.concatenate</string>
 		<key>match</key>
-		<string>[\s]:[\s]</string>
+		<string>\s:\s</string>
 	</dict>
 
 
@@ -517,7 +517,7 @@
 		<key>name</key>
 		<string>label.asar.anonymous.forward</string>
 		<key>match</key>
-		<string>(?:(?:^\s*)|(?<=\s+:\s+))\??\++(:)?</string>
+		<string>(?:(?:^\s*)|(?<=\s+:\s+))\??\++(:)?\s+</string>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -525,7 +525,7 @@
 		<key>name</key>
 		<string>label.asar.anonymous.backward</string>
 		<key>match</key>
-		<string>(?:(?:^\s*)|(?<=\s+:\s+))\??\-+(:)?</string>
+		<string>(?:(?:^\s*)|(?<=\s+:\s+))\??\-+(:)?\s+</string>
 	</dict>
 
 
@@ -563,15 +563,7 @@
 		<key>name</key>
 		<string>keyword.asar.operator.range</string>
 		<key>match</key>
-		<string>(\b\.\.|:)(?!\s+)</string>
-	</dict>
-	<dict>
-		<key>comment</key>
-		<string>Asar logical operators</string>
-		<key>name</key>
-		<string>keyword.asar.operator.logical</string>
-		<key>match</key>
-		<string>\s+(==|!=|>=|<=|>|<|&&|\|\|)\s+</string>
+		<string>(?<!<)(\b\.\.|:)(?!\s+)</string>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -580,6 +572,14 @@
 		<string>keyword.asar.operator.bitwise</string>
 		<key>match</key>
 		<string>(<<|>>|\||&|~|\^|<:)</string>
+	</dict>
+	<dict>
+		<key>comment</key>
+		<string>Asar logical operators</string>
+		<key>name</key>
+		<string>keyword.asar.operator.logical</string>
+		<key>match</key>
+		<string>(?<=\S+\s*)(==|!=|>=|<=|>|<|&&|\|\|)(?=\s*\S+)</string>
 	</dict>
 	<dict>
 		<key>comment</key>
@@ -603,7 +603,7 @@
 		<key>name</key>
 		<string>keyword.asar.operator.arithmetic</string>
 		<key>match</key>
-		<string>(?<!\?)(\+|\-|\*|/|%)(?!\1*,)</string>
+		<string>(?<!\?)\s*(\+|\-|\*|/|%)(?!\+|\-|,)(?=\s*\S+)</string>
 	</dict>
 
 
@@ -783,7 +783,7 @@
 		<key>comment</key>
 		<string>Asar program counter directives</string>
 		<key>match</key>
-		<string>(?i)\s*\b(org|(base)\b\s*((?=(off))\b(off)\b)?|skip|warnpc|(bank(?!\=))\b\s*(\b(noassume|auto))?|dpbase|(optimize\sdp)\b([\s]+\b(none|ram|always)\b)?|(optimize\saddress)\b([\s]+\b(default|ram|mirrors)\b)?|pushpc|pullpc|pushbase|pullbase)\b</string>
+		<string>(?i)\s*\b(org|(base)\b\s*((?=(off))\b(off)\b)?|skip|warnpc|(bank(?!\=))\b\s*(\b(noassume|auto))?|dpbase|(optimize\sdp)\b([\s]+\b(none|ram|always)\b)?|(optimize\saddress)\b([\s]+\b(default|ram|mirrors)\b)?|pushpc|pullpc|pushbase|pullbase)\s+</string>
 		<key>name</key>
 		<string>keyword.asar.programcounter</string>
 	</dict>
@@ -1032,7 +1032,7 @@
 		<key>name</key>
 		<string>label.asar.sublabel.reference</string>
 		<key>match</key>
-		<string>(?i)(\s*\?*?[\.]+(?!\s*[!%.$<>])[a-zA-Z_0-9]+\s*)(?=,?|\)?)</string>
+		<string>(?i)(\s*\?*?[\.]+(?!\s*[!%.$<>])[a-zA-Z_0-9]+\b)(?=,?|\)?)</string>
 	</dict>
 	<dict>
 		<key>comment</key>

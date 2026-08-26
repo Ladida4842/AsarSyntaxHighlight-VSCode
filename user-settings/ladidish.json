@@ -71,7 +71,7 @@
                     "scope": ["keyword.asar.mnemonics.breakpoint",
 			"keyword.asar.mnemonics.wait"],
                     "settings": {
-                        "foreground": "#e76767"
+                        "foreground": "#df6767"
                         }
                 },
                 {
@@ -85,7 +85,7 @@
                     "name": "65c816 Mnemonics - Bitwise operations",
                     "scope": ["keyword.asar.mnemonics.bitwise"],
                     "settings": {
-                        "foreground": "#b1a1c1"
+                        "foreground": "#b991c1"
                         }
                 },
                 {
