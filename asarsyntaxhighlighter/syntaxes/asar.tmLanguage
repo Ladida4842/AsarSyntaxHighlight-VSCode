@@ -583,6 +583,14 @@
 	</dict>
 	<dict>
 		<key>comment</key>
+		<string>Asar ternary operator</string>
+		<key>name</key>
+		<string>keyword.asar.operator.ternary</string>
+		<key>match</key>
+		<string>\?(?=\()</string>
+	</dict>
+	<dict>
+		<key>comment</key>
 		<string>Asar brackets</string>
 		<key>name</key>
 		<string>keyword.asar.operator.brackets</string>
