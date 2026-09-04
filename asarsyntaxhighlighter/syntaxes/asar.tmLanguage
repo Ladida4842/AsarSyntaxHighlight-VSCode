@@ -135,7 +135,7 @@
 		<key>name</key>
 		<string>keyword.asar.define</string>
 		<key>begin</key>
-		<string>![a-zA-Z0-9_{}]+</string>
+		<string>!\^*[a-zA-Z0-9_{}]+</string>
 		<key>end</key>
 		<string>(?=[ \t,;\r\n()+-/%*&<>|^=:?#]|$)</string>
 		<key>patterns</key>
@@ -144,13 +144,13 @@
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage</string>
 				<key>match</key>
-				<string><[a-zA-Z_0-9]+>(?!\w*:\s*)</string>
+				<string><\^*[a-zA-Z_0-9]+>(?!\w*:\s*)</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage.variadic</string>
 				<key>match</key>
-				<string><\.{3}(\[\S+\])?>(?!\w*:\s*)</string>
+				<string><\^*\.{3}(\[\S+\])?>(?!\w*:\s*)</string>
 			</dict>
 		</array>
 	</dict>
@@ -168,13 +168,13 @@
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage</string>
 				<key>match</key>
-				<string><[a-zA-Z_0-9]+>(?!\w*:\s*)</string>
+				<string><\^*[a-zA-Z_0-9]+>(?!\w*:\s*)</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage.variadic</string>
 				<key>match</key>
-				<string><\.{3}(\[\S+\])?>(?!\w*:\s*)|(?<=\()(\.{3})(?=\))(?!\w*:\s*)</string>
+				<string><\^*\.{3}(\[\S+\])?>(?!\w*:\s*)|(?<=\()(\.{3})(?=\))(?!\w*:\s*)</string>
 			</dict>
 		</array>
 	</dict>
@@ -196,19 +196,19 @@
 				<key>name</key>
 				<string>keyword.asar.define</string>
 				<key>match</key>
-				<string>![a-zA-Z0-9_{}]+</string>
+				<string>!\^*[a-zA-Z0-9_{}]+</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage</string>
 				<key>match</key>
-				<string><[a-zA-Z_0-9]+></string>
+				<string><\^*[a-zA-Z_0-9]+></string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage.variadic</string>
 				<key>match</key>
-				<string><\.{3}(\[\S+\])?></string>
+				<string><\^*\.{3}(\[\S+\])?></string>
 			</dict>
 		</array>
 	</dict>
@@ -227,19 +227,19 @@
 				<key>name</key>
 				<string>keyword.asar.define</string>
 				<key>match</key>
-				<string>![a-zA-Z0-9_{}]+</string>
+				<string>!\^*[a-zA-Z0-9_{}]+</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage</string>
 				<key>match</key>
-				<string><[a-zA-Z_0-9]+></string>
+				<string><\^*[a-zA-Z_0-9]+></string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage.variadic</string>
 				<key>match</key>
-				<string><\.{3}(\[\S+\])?></string>
+				<string><\^*\.{3}(\[\S+\])?></string>
 			</dict>
 		</array>
 	</dict>
@@ -408,13 +408,13 @@
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage</string>
 				<key>match</key>
-				<string><[a-zA-Z_0-9]+></string>
+				<string><\^*[a-zA-Z_0-9]+></string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage.variadic</string>
 				<key>match</key>
-				<string><\.{3}(\[\S+\])?></string>
+				<string><\^*\.{3}(\[\S+\])?></string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -460,13 +460,13 @@
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage</string>
 				<key>match</key>
-				<string><[a-zA-Z_0-9]+></string>
+				<string><\^*[a-zA-Z_0-9]+></string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>keyword.asar.macro.args.usage.variadic</string>
 				<key>match</key>
-				<string><\.{3}(\[\S+\])?></string>
+				<string><\^*\.{3}(\[\S+\])?></string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -921,19 +921,19 @@
 						<key>name</key>
 						<string>keyword.asar.define</string>
 						<key>match</key>
-						<string>![a-zA-Z0-9_{}]+</string>
+						<string>!\^*[a-zA-Z0-9_{}]+</string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>keyword.asar.macro.args.usage</string>
 						<key>match</key>
-						<string><[a-zA-Z_0-9]+></string>
+						<string><\^*[a-zA-Z_0-9]+></string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>keyword.asar.macro.args.usage.variadic</string>
 						<key>match</key>
-						<string><\.{3}(\[\S+\])?></string>
+						<string><\^*\.{3}(\[\S+\])?></string>
 					</dict>
 				</array>
 			</dict>
